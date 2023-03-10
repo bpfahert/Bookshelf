@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import { useAppSelector } from '../app/hooks';
 
 export default function Home() {
 
