@@ -1,8 +1,9 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import bookshelfReducer from '../features/bookshelfSlice';
 
 export const store = configureStore({
   reducer: {
-    
+    bookshelf: bookshelfReducer,
   },
 });
 
