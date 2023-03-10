@@ -1,9 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
 import Home from './Home';
-import Navbar from './Navbar';
 
 describe('Home component', () => {
     it('renders h2 correctly', () => {
