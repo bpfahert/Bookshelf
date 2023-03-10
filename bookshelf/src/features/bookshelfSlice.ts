@@ -21,10 +21,13 @@ export const bookshelfSlice = createSlice({
     reducers: {
         addBook: (state, action: PayloadAction<BookType>) => {
             state.booklist = [...state.booklist, action.payload];
+        },
+        removeBook: (state, action: PayloadAction<BookType>) => {
+            state.booklist = state.booklist.filter(book => book.id !== action.payload.id);
         }
     },
 })
 
 export const selectBooklist = (state: RootState) => state.bookshelf.booklist;
-export const { addBook } = bookshelfSlice.actions;
+export const { addBook, removeBook } = bookshelfSlice.actions;
 export default bookshelfSlice.reducer;
