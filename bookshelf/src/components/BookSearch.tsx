@@ -3,36 +3,35 @@ import Navbar from './Navbar';
 import Book from './Book';
 import Shelf from './Shelf';
 
+interface JSONResponse {
+    id: number,
+    title: string,
+    subjects: string[],
+    authors: {
+        "birth_year": number | null,
+        "death_year": number | null,
+        "name": string,
+    }[],
+    translators: {
+        "birth_year": number | null,
+        "death_year": number | null,
+        "name": string,
+    }[],
+    bookshelves: string[],
+    languages: string[],
+    copyright: boolean | null,
+    media_type: string,
+    download_count: number
+}
+
+export function prepareURL(input: string) {
+    const url = input.replaceAll(' ', '%20');
+    return url;
+}
+
 export default function BookSearch() {
-
-    interface JSONResponse {
-        id: number,
-        title: string,
-        subjects: string[],
-        authors: {
-            "birth_year": number | null,
-            "death_year": number | null,
-            "name": string,
-        }[],
-        translators: {
-            "birth_year": number | null,
-            "death_year": number | null,
-            "name": string,
-        }[],
-        bookshelves: string[],
-        languages: string[],
-        copyright: boolean | null,
-        media_type: string,
-        download_count: number
-    }
-
     const [searchResults, setSearchResults] = React.useState<JSONResponse[]>([]);
     const [searchInput, setSearchInput] = React.useState<string>('');
-
-    function prepareURL(input: string) {
-        const url = input.replaceAll(' ', '%20');
-        return url;
-    }
 
     async function bookSearch(input: string) {
         let searchparameters = prepareURL(input);;
