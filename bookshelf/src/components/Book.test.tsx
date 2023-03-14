@@ -2,12 +2,12 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Provider } from 'react-redux';
 import { isOnBookshelf} from './Book';
-import type { BookType } from '../features/bookshelfSlice';
+import type { BookType } from '../interfaces/types';
 
 describe('isOnBookshelf function', () => {
     const emptylist: BookType[] = [];
-    const testlist : BookType[] = [{title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', id: 28054}];
-    const testbook = {title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', id: 28054};
+    const testlist : BookType[] = [{title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', id: 28054, subjects: ['']}];
+    const testbook = {title: 'The Brothers Karamazov', author: 'Fyodor Dostoevsky', id: 28054, subjects: ['']};
 
     it('returns false if book is not on booklist in state', () => {
         expect(isOnBookshelf(emptylist, testbook)).toBe(false);

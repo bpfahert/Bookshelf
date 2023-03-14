@@ -1,17 +1,17 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { addBook, removeBook } from '../features/bookshelfSlice';
-import type { BookType } from '../features/bookshelfSlice';
+import type { BookType } from '../interfaces/types';
 
 export const isOnBookshelf = ((list : BookType[], book: BookType) => {
     return list.map((book: BookType) => book.id).includes(book.id);
 });
 
 
-export default function Book({ title, author, id } : BookType) {
+export default function Book({ title, author, id, subjects } : BookType) {
     const dispatch = useAppDispatch();
     const { booklist } = useAppSelector(state => state.bookshelf)
-    const currentBook : BookType = {title: title, author: author, id: id};
+    const currentBook : BookType = {title: title, author: author, id: id, subjects: subjects};
 
 
     return (

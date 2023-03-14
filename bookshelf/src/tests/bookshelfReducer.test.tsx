@@ -11,15 +11,15 @@ describe('bookshelf Reducer', () => {
         const prevState = {
             booklist: [] 
         };
-        const testBook = {title: 'Ulysses', author: 'James Joyce', id: 4300};
+        const testBook = {title: 'Ulysses', author: 'James Joyce', id: 4300, subjects: ['']};
         expect(reducer(prevState, addBook(testBook))).toEqual({booklist: [{title: 'Ulysses', author: 'James Joyce', id: 4300}]});
     })
 
     it('should remove a book from the state booklist when removeBook is dispatched', () => {
         const prevState = {
-            booklist: [{title: 'Ulysses', author: 'James Joyce', id: 4300}] 
+            booklist: [{title: 'Ulysses', author: 'James Joyce', id: 4300, subjects: ['']}] 
         };
-        const testBook = {title: 'Ulysses', author: 'James Joyce', id: 4300};
+        const testBook = {title: 'Ulysses', author: 'James Joyce', id: 4300, subjects: ['']};
         expect(reducer(prevState, removeBook(testBook))).toEqual({booklist: []});
     })
       

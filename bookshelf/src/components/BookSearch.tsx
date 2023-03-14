@@ -2,27 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Book from './Book';
 import Shelf from './Shelf';
-
-interface JSONResponse {
-    id: number,
-    title: string,
-    subjects: string[],
-    authors: {
-        "birth_year": number | null,
-        "death_year": number | null,
-        "name": string,
-    }[],
-    translators: {
-        "birth_year": number | null,
-        "death_year": number | null,
-        "name": string,
-    }[],
-    bookshelves: string[],
-    languages: string[],
-    copyright: boolean | null,
-    media_type: string,
-    download_count: number
-}
+import { JSONResponse } from '../interfaces/types';
 
 export function prepareURL(input: string) {
     const url = input.replaceAll(' ', '%20');
@@ -48,7 +28,7 @@ export default function BookSearch() {
 
     const booktitles = searchResults.map(book => {
         return (
-            <Book title={book.title} author={book.authors[0] ? book.authors[0].name : 'Unknown'} id={book.id} />
+            <Book title={book.title} author={book.authors[0] ? book.authors[0].name : 'Unknown'} id={book.id} subjects={book.subjects}/>
     )});
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
