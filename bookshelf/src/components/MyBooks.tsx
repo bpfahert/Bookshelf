@@ -19,7 +19,7 @@ export default function MyBooks() {
             });
             let searchdata = await response.json();
             let bookRecs = [];
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 8; i++) {
                 if(!isOnBookshelf(booklist, searchdata.results[i]))
                 bookRecs.push(searchdata.results[i]);
             }
@@ -62,7 +62,9 @@ export default function MyBooks() {
     return (
         <div>
             <Navbar page='My Books' />
+            <h3>Your Books:</h3>
             <Shelf booklist={booklist} />
+            <h3>Recommended Books:</h3>
             <ul style={{listStyle: 'none',display:'flex', justifyContent:'flex-start', flexWrap: 'wrap' }}>
                 {recommendedbooks}
             </ul>

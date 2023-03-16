@@ -43,6 +43,7 @@ export default function BookSearch() {
     return(
         <div>
             <Navbar page='Book Search' />
+            <h4>Search by Title or Author</h4>
             <form onSubmit={handleSubmit}>
                 <div className='form-group'>
                     <label htmlFor='searchinput'>Search</label>
