@@ -19,8 +19,11 @@ export default function MyBooks() {
             let searchdata = await response.json();
             let bookRecs: JSONBookshelf = {apibooklist: []};
             for (let i = 0; i < 8; i++) {
-                if(!isOnBookshelf(booklist, searchdata.results[i]))
-                bookRecs.apibooklist.push(searchdata.results[i]);
+                if(searchdata.results[i]) {
+                    if(!isOnBookshelf(booklist, searchdata.results[i])) {
+                        bookRecs.apibooklist.push(searchdata.results[i]);
+                    }
+                }
             }
             setRecommendations(bookRecs.apibooklist);
         } catch (error) {
@@ -65,7 +68,7 @@ export default function MyBooks() {
                 <Shelf booklist={booklist} />
                 <h1 style={{color: 'white'}}>Recommended Books:</h1>
                 <Shelf booklist={recommendedbooks} />
-                <button type='button' style={{width: '10rem'}} onClick={() => getRecommendations()}>Get Recommendations</button>
+                <button className='btn btn-light' type='button' style={{width: '10rem'}} onClick={() => getRecommendations()}>Get Recommendations</button>
             </div>
         </div>
     )
