@@ -14,6 +14,29 @@ export interface Subjects {
     [key: string]: number,
 }
 
+export interface JSONBookshelf {
+    apibooklist: {
+        id: number,
+        title: string,
+        subjects: string[],
+        authors: {
+            "birth_year": number | null,
+            "death_year": number | null,
+            "name": string,
+        }[],
+        translators: {
+            "birth_year": number | null,
+            "death_year": number | null,
+            "name": string,
+        }[],
+        bookshelves: string[],
+        languages: string[],
+        copyright: boolean | null,
+        media_type: string,
+        download_count: number,
+    }[],
+}
+
 export interface JSONResponse {
         id: number,
         title: string,

@@ -26,10 +26,9 @@ export default function BookSearch() {
         }
     }
 
-    const booktitles = searchResults.map(book => {
-        return (
-            <Book title={book.title} author={book.authors[0] ? book.authors[0].name : 'Unknown'} id={book.id} subjects={book.subjects}/>
-    )});
+    const searchtitles = searchResults.map(book => {
+        return {title: book.title, author: book.authors[0] ? book.authors[0].name : 'Unknown', id: book.id, subjects: book.subjects};
+    })
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchInput(e.target.value);
@@ -43,17 +42,17 @@ export default function BookSearch() {
     return(
         <div>
             <Navbar page='Book Search' />
-            <h4>Search by Title or Author</h4>
-            <form onSubmit={handleSubmit}>
-                <div className='form-group'>
-                    <label htmlFor='searchinput'>Search</label>
-                    <input type='text' className='form-control' value={searchInput} onChange={handleChange} data-testid='searchinput' id='searchinput'></input>
-                </div>
-                <button type='button' onClick={() => bookSearch(searchInput)}>Search</button>
-            </form>
-            <ul style={{listStyle: 'none',display:'flex', justifyContent:'flex-start', flexWrap: 'wrap' }}>
-                {booktitles}
-            </ul>
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <h3 style={{color: 'white'}}>Search by Title or Author</h3>
+                <form onSubmit={handleSubmit}>
+                    <div className='form-group'>
+                        <label htmlFor='searchinput' style={{color: 'white'}}>Search</label>
+                        <input type='text' className='form-control' value={searchInput} onChange={handleChange} data-testid='searchinput' id='searchinput'></input>
+                    </div>
+                    <button type='button' onClick={() => bookSearch(searchInput)}>Search</button>
+                </form>
+                <Shelf booklist={searchtitles} />
+            </div>
         </div>
     )
 }

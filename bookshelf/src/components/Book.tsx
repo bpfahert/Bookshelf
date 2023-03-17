@@ -15,7 +15,7 @@ export default function Book({ title, author, id, subjects } : BookType) {
 
 
     return (
-        <div className='card text-center border-dark mb-3 mr-9' style={{width: '16rem'}}>
+        <div className='card text-center border-dark mb-3' style={{width: '16rem'}}>
             <li>{title}</li>
             <li>by {author}</li>
             <li>{isOnBookshelf(booklist, currentBook) ? 
@@ -26,3 +26,4 @@ export default function Book({ title, author, id, subjects } : BookType) {
         </div>
     )
 }
+

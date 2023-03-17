@@ -1,9 +1,8 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Shelf from './Shelf';
-import Book from './Book';
 import { useAppSelector } from '../app/hooks';
-import { BookType, JSONResponse, Subjects } from '../interfaces/types';
+import { JSONResponse, Subjects, JSONBookshelf } from '../interfaces/types';
 import { isOnBookshelf } from './Book';
 
 export default function MyBooks() {
@@ -18,12 +17,12 @@ export default function MyBooks() {
                 mode: 'cors'
             });
             let searchdata = await response.json();
-            let bookRecs = [];
+            let bookRecs: JSONBookshelf = {apibooklist: []};
             for (let i = 0; i < 8; i++) {
                 if(!isOnBookshelf(booklist, searchdata.results[i]))
-                bookRecs.push(searchdata.results[i]);
+                bookRecs.apibooklist.push(searchdata.results[i]);
             }
-            setRecommendations(bookRecs);
+            setRecommendations(bookRecs.apibooklist);
         } catch (error) {
             alert("Error!");
         }
@@ -54,21 +53,20 @@ export default function MyBooks() {
     }
 
     const recommendedbooks = recommendations.map(book => {
-        return (
-            <Book title={book.title} author={book.authors[0] ? book.authors[0].name : 'Unknown'} id={book.id} subjects={book.subjects}/>
-    )});
+        return {title: book.title, author: book.authors[0] ? book.authors[0].name : 'Unknown', id: book.id, subjects: book.subjects};
+    })
 
 
     return (
         <div>
             <Navbar page='My Books' />
-            <h3>Your Books:</h3>
-            <Shelf booklist={booklist} />
-            <h3>Recommended Books:</h3>
-            <ul style={{listStyle: 'none',display:'flex', justifyContent:'flex-start', flexWrap: 'wrap' }}>
-                {recommendedbooks}
-            </ul>
-            <button type='button' onClick={() => getRecommendations()}>Get Recommendations</button>
+            <div  style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <h1 style={{color:'white'}}>Your Books</h1>
+                <Shelf booklist={booklist} />
+                <h1 style={{color: 'white'}}>Recommended Books:</h1>
+                <Shelf booklist={recommendedbooks} />
+                <button type='button' style={{width: '10rem'}} onClick={() => getRecommendations()}>Get Recommendations</button>
+            </div>
         </div>
     )
 }
