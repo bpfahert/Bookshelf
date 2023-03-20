@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/bookshelf/static/js/main.7f922f16.js",
-    "index.html": "/bookshelf/index.html",
-    "main.7f922f16.js.map": "/bookshelf/static/js/main.7f922f16.js.map"
+    "main.js": "/Bookshelf/static/js/main.7f922f16.js",
+    "index.html": "/Bookshelf/index.html",
+    "main.7f922f16.js.map": "/Bookshelf/static/js/main.7f922f16.js.map"
   },
   "entrypoints": [
     "static/js/main.7f922f16.js"
