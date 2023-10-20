@@ -1,6 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
-import Book from './Book';
 import Shelf from './Shelf';
 import { JSONResponse } from '../interfaces/types';
 
@@ -41,7 +39,6 @@ export default function BookSearch() {
     
     return(
         <div>
-            <Navbar page='Book Search' />
             <div className='d-flex flex-column align-items-center'>
                 <h3 style={{color: 'white'}}>Search by Title or Author</h3>
                 <form className='d-flex flex-column mb-3' onSubmit={handleSubmit}>

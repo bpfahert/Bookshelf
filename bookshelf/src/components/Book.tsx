@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { addBook, removeBook } from '../features/bookshelfSlice';
 import type { BookType } from '../interfaces/types';

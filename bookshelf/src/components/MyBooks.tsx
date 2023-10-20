@@ -62,7 +62,6 @@ export default function MyBooks() {
 
     return (
         <div>
-            <Navbar page='My Books' />
             <div  style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <h1 style={{color:'white'}}>Your Books</h1>
                 <Shelf booklist={booklist} />

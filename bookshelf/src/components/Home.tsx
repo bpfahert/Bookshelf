@@ -1,13 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
-import { useAppSelector } from '../app/hooks';
 
 export default function Home() {
 
 
     return(
         <div>
-            < Navbar page='Bookshelf'/>
             <div className='jumbotron' style={{backgroundColor: 'white'}}>
                 <h2 className='display-4' data-testid='homeh2'>Welcome to Book Club!</h2>
                 <p className='lead'>Hello! This website is focused on recommending free ebooks via <a href="https://www.gutenberg.org/">Project Gutenberg</a> based on books you've enjoyed!</p>
