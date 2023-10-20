@@ -12,7 +12,7 @@ export default function MyBooks() {
     // Recommends books found on project gutenberg based on most popular subject in user books
     async function recommendBook(subject: string) {
         try{
-            const response = await fetch(`http://gutendex.com/books?topic=${subject}`, {
+            const response = await fetch(`https://gutendex.com/books?topic=${subject}`, {
                 mode: 'cors'
             });
             let searchdata = await response.json();

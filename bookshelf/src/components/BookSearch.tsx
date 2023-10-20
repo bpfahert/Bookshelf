@@ -14,7 +14,7 @@ export default function BookSearch() {
     async function bookSearch(input: string) {
         let searchparameters = prepareURL(input);;
         try{
-            const response = await fetch(`http://gutendex.com/books?search=${searchparameters}`, {
+            const response = await fetch(`https://gutendex.com/books?search=${searchparameters}`, {
                 mode: 'cors'
             });
             let searchdata = await response.json();
