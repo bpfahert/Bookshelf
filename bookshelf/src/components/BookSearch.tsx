@@ -42,14 +42,16 @@ export default function BookSearch() {
     return(
         <div>
             <Navbar page='Book Search' />
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className='d-flex flex-column align-items-center'>
                 <h3 style={{color: 'white'}}>Search by Title or Author</h3>
-                <form onSubmit={handleSubmit}>
-                    <div className='form-group'>
-                        <label htmlFor='searchinput' style={{color: 'white'}}>Search</label>
-                        <input type='text' className='form-control' value={searchInput} onChange={handleChange} data-testid='searchinput' id='searchinput'></input>
+                <form className='d-flex flex-column mb-3' onSubmit={handleSubmit}>
+                    <div className='form-group mb-1'>
+                        <div className='form-floating'>
+                            <input type='text' className='form-control' value={searchInput} onChange={handleChange} data-testid='searchinput' id='searchinput' placeholder='Book'></input>
+                            <label className='form-label' htmlFor='searchinput'>Search</label>
+                        </div>
                     </div>
-                    <button type='button' onClick={() => bookSearch(searchInput)}>Search</button>
+                    <button className='w-50 align-self-center' type='button' onClick={() => bookSearch(searchInput)}>Search</button>
                 </form>
                 <Shelf booklist={searchtitles} />
             </div>

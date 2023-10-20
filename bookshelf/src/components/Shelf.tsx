@@ -12,8 +12,8 @@ export default function Shelf({booklist} : BookshelfState) {
     });
 
     return(
-        <div className='container-fluid text-center'>
-            <ul style={{listStyle: 'none',display:'flex', justifyContent:'flex-start', flexWrap: 'wrap', gap:'10px' }}>
+        <div className='container-fluid text-center p-0'>
+            <ul className="d-flex justify-content-center flex-wrap p-0" style={{listStyle: 'none', gap:'10px' }}>
                 {bookElements}
             </ul>
         </div>
