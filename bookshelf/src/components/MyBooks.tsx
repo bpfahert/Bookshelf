@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './Navbar';
 import Shelf from './Shelf';
 import { useAppSelector } from '../app/hooks';
 import { JSONResponse, Subjects, JSONBookshelf } from '../interfaces/types';
@@ -52,7 +51,6 @@ export default function MyBooks() {
 
     function getRecommendations() {
         recommendBook(sortTopics());
-
     }
 
     const recommendedbooks = recommendations.map(book => {
