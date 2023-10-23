@@ -10,7 +10,7 @@ export default function RouteSwitch() {
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/Bookshelf" element={<Home />} />
                 <Route path="/mybooks" element={<MyBooks />} />
                 <Route path="/findbooks" element={<BookSearch />} />
             </Routes>
