@@ -6,7 +6,7 @@ export default function Home() {
     return(
         <div>
             <div className='jumbotron' style={{backgroundColor: 'white'}}>
-                <h2 className='display-4' data-testid='homeh2'>Welcome to Book Club!</h2>
+                <h2 className='display-4' data-testid='homeh2'>Welcome to Bookshelf!</h2>
                 <p className='lead'>Hello! This website is focused on recommending free ebooks via <a href="https://www.gutenberg.org/">Project Gutenberg</a> based on books you've enjoyed!</p>
                 <hr className='my-4' />
                 <p>Use the Find Books feature to add books you've read or are interested in to your collection. You'll then be 

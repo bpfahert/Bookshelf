@@ -11,7 +11,7 @@ export default function Navbar() {
             <div className='collapse navbar-collapse' id='navbarMobileToggler'>
                 <ul className='navbar-nav mr-auto'>
                     <li className='nav-item'>
-                        <Link className='nav-link text-bg-success' to="/">Home</Link>
+                        <Link className='nav-link text-bg-success' to="/Bookshelf">Home</Link>
                     </li>
                     <li className='nav-item'>
                         <Link className='nav-link' to="/mybooks">My Books</Link>
